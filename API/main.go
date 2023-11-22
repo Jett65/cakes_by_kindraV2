@@ -60,8 +60,9 @@ func main() {
 
 	v1Router.HandleFunc("/cakes", apiCfg.handlerCreateCake).Methods("POST")
     v1Router.HandleFunc("/cakes", apiCfg.handlerGetCakes).Methods("GET")
+    v1Router.HandleFunc("/cakes/{id}", apiCfg.handlerGetCake).Methods("GET")
     // Update cake
-    // Delete cake
+    v1Router.HandleFunc("/cakes/{id}", apiCfg.handerDeleteCake).Methods("DELETE")
 
 	log.Printf("Server running on port %s", porlString)
 	log.Fatal(server.ListenAndServe())
